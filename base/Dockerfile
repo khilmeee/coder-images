@@ -30,6 +30,14 @@ RUN userdel -r ubuntu && \
     --shell=/bin/bash \
     --uid=1000 \
     --user-group && \
-    echo "coder ALL=(ALL) NOPASSWD:ALL" >>/etc/sudoers.d/nopasswd
+    echo "coder ALL=(ALL) NOPASSWD:ALL" >>/etc/sudoers.d/nopasswd && \
+
+    # install code-server
+    # Install the latest code-server.
+    # Append "--version x.x.x" to install a specific version of code-server.
+    curl -fsSL https://code-server.dev/install.sh | sh -s -- --method=standalone --prefix=/tmp/code-server
+
+    # install ext
+    # /tmp/code-server/bin/code-server --install-extension /vsix/PedroMontolive.livt-pack-1.0.3.vsix
 
 USER coder
