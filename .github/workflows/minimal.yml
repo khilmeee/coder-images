@@ -1,5 +1,10 @@
 name: minimal
 
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   push:
     name: Push
