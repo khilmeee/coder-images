@@ -44,8 +44,8 @@ jobs:
       - name: Build and Push
         uses: docker/build-push-action@v4
         with:
-          context: .
-          file: ./Dockerfile
+          context: ./base
+          file: ./base/Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
           platforms: linux/amd64
           labels: ${{ steps.docker_meta.outputs.labels }}
